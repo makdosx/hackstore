@@ -1,0 +1,55 @@
+/* Footer Area css
+============================================================================================ */
+.footer_area{
+	background: $primary-color2;
+}
+.footer_inner{
+	
+}
+.social_widget{
+	.f_title{
+		h4{
+			font-size: 21px;
+			margin: 40px 0 20px;
+			color: #000;
+		}
+	}
+	p{
+		font-size: 14px;
+		line-height: 24px;
+		font-family: $primary-font;
+		color: $text-color;
+		margin-bottom: 10px;
+	}
+	.list{
+		li{
+			margin-right: 40px;
+			display: inline-block;
+			a{
+				color: #c48e0b;
+				font-size: 36px;
+				@include transition;
+			}
+			&:last-child{
+				margin-right: 0px;
+			}
+			&:hover{
+				a{
+					color: $primary-color;
+				}
+			}
+		}
+	}
+}
+.copyright{
+	margin-top: 40px;
+	p{
+		color: #000;
+		a{
+			color: $primary-color;
+		}
+	}
+}
+
+/* End Footer Area css
+============================================================================================ */

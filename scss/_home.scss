@@ -1,0 +1,223 @@
+/* Start About Area css
+============================================================================================ */
+
+.about-area {
+    .main-title {
+        margin-bottom: 30px;
+        h1 {
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+            &:before {
+                left: 10%;
+                @media (max-width: 1200px) {
+                    left: 12%;
+                }
+                @media (max-width: 991px) {
+                    left: 8%;
+                }
+                @media (max-width: 767px) {
+                    left: 10%;
+                }
+            }
+            &:after {
+                left: 5px;
+            }
+        }
+        @media (max-width: 1024px) {
+            padding-bottom: 0px;
+        }
+    }
+    .about-left {
+        @media (max-width: 991px) {
+            display: none;
+        }
+    }
+    .primary-btn {
+        margin-top: 40px;
+    }
+}
+
+/* End About Area css
+============================================================================================ */
+
+/* Start Testimonial Area css
+============================================================================================ */
+
+.testimonial_area {
+    background: url(../img/testi-bg.jpg) no-repeat center;
+    @media (max-width: 991px) {
+        background-image: none;
+        .testimonial-img {
+            display: none;
+        }
+    }
+    .testimonial_logos {
+        background: #fff;
+        padding: 80px 50px;
+        box-shadow: 0px 20px 50px rgba(153, 153, 153, 0.2);
+        img {
+            cursor: pointer;
+        }
+        .top_logos {
+            img:last-child {
+                float: right;
+            }
+        }
+        .mid_logo {
+            margin: 85px 0;
+            text-align: center;
+        }
+        .bottom_logos {
+            img:last-child {
+                float: right;
+            }
+        }
+        @media (max-width: 991px) {
+            display: none;
+        }
+    }
+    .active_testimonial {
+        .owl-dots {
+            background: $primary-color;
+            height: 25px;
+            width: 100px;
+            position: absolute;
+            left: 0;
+            bottom: -20px;
+            border-radius: 50px;
+            @media (max-width: 991px) {
+                left: 50%;
+                @include transform(translateX(-50%));
+            }
+            .owl-dot {
+                height: 15px;
+                width: 15px;
+                background: #ec887f;
+                margin: 5px;
+                border-radius: 50%;
+                margin-top: 5px;
+                display: inline-block;
+                &.active {
+                    background: #ffffff;
+                }
+            }
+        }
+    }
+}
+
+.single_testimonial {
+    @media (max-width: 991px) {
+        text-align: center;
+    }
+    .testimonial_head {
+        text-align: left;
+        @media (max-width: 991px) {
+            text-align: center;
+        }
+        img {
+            margin-bottom: 30px;
+            width: auto;
+            @media (max-width: 991px) {
+                margin: 0 auto 30px;
+            }
+        }
+        h4 {
+            margin-bottom: 10px;
+            color: #000;
+            font-size: 21px;
+        }
+        .review {
+            i.fa {
+                color: #ffc000;
+            }
+        }
+    }
+    .testimonial_content {
+        margin-top: 30px;
+        p {
+            font-size: 24px;
+            font-weight: 400;
+            font-style: italic;
+            margin-bottom: 40px;
+            line-height: 36px;
+            padding-right: 35px;
+            @media (max-width: 767px) {
+                font-size: 18px;
+            }
+        }
+    }
+}
+
+/* End Testimonial Area css
+============================================================================================ */
+
+/* Start Newsletter Area css
+============================================================================================ */
+
+.newsletter-area {
+    background-image: url(../img/newsletter-bg.jpg);
+    background-size: cover;
+    .main-title {
+        h1 {
+            color: #fff;
+            &:before {
+                background: #fff;
+            }
+            &:after {
+                background: #fff;
+            }
+        }
+        p {
+            color: #fff;
+        }
+    }
+}
+
+.newsletter_form {
+    .navbar-form {
+        width: 100%;
+        background: #fff;
+        border-radius: 50px;
+        .form-control {
+            border: none;
+            font-size: 13px;
+            background: transparent;
+            color: #000;
+            padding: 0 20px;
+            height: 50px;
+            &:focus {
+                box-shadow: none;
+            }
+        }
+        input {
+            @include placeholder {
+                font-size: 12px;
+                color: #999999;
+                text-transform: uppercase;
+            }
+        }
+        .add-on {
+            border-radius: 50px;
+            border: 1px solid transparent;
+            height: 50px;
+        }
+        .genric-btn {
+            color: #22195e;
+            border: none;
+            border-radius: 50px;
+            height: 40px;
+            line-height: 40px;
+            margin: 4px;
+            font-weight: 500;
+            text-transform: uppercase;
+            background: $primary-color2;
+            &:hover {
+                background-color: $primary-color;
+                color: #ffffff;
+            }
+        }
+    }
+}
+
+/* End Newsletter Area css
+============================================================================================ */
