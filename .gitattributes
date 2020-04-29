@@ -3,4 +3,5 @@ scss/*  linguist-vendored
 vendors/* linguist-vendored
 acc_login/* linguist-vendored
 acc_register/* linguist-vendored
+acc_register_26/* linguist-vendored
 fonts/* linguist-vendored
