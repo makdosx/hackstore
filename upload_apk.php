@@ -766,8 +766,6 @@ while ($row=$result->fetch_assoc())
      $pass=$obj->connect[2];
      $db=$obj->connect[3];
 
-     $conn2 = new mysqli($host,$user,$pass,$db);
-
 
      $conn3 = new mysqli($host,$user,$pass,$db);
 
@@ -840,8 +838,6 @@ while ($row=$result->fetch_assoc())
      $user=$obj->connect[1];
      $pass=$obj->connect[2];
      $db=$obj->connect[3];
-
-     $conn2 = new mysqli($host,$user,$pass,$db);
 
 
      $conn4 = new mysqli($host,$user,$pass,$db);
