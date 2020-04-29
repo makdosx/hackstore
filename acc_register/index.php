@@ -120,7 +120,7 @@ background-color:grey;
 		<label class="label-input100" for="name"> <font size="3"> <b> Device Ctegory </b> </font> </label>
                 
                   <select style="width:100%; background-color: transparent; text-align-last:center;" name="device_category" required>
-                    <option value="" disabled selected> Choose Ctegory </option>    
+                    <option value="" disabled selected> Choose Category </option>    
                     <option value="Internet Hacking"> Internet Hacking </option>
                     <option value="GSM Hacking"> GSM Hacking </option>
                     <option value="Full Hacking"> Full Hacking </option>
