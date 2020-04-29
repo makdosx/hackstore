@@ -20,7 +20,7 @@
  *
  */
 
-require('__DEV__/force_https.php');
+//require('__DEV__/force_https.php');
 
 session_start();
 
@@ -95,6 +95,8 @@ session_start();
             aria-haspopup='true' aria-expanded='false'> Hackstore </a>
           <ul class='dropdown-menu'>
            <li class='nav-item'><a class='nav-link' href='devices.php'> Συσκευές </a></li>
+           <li class='nav-item'><a class='nav-link' href='applications.php'> Εφαρμογές </a></li>
+           <li class='nav-item'><a class='nav-link' href='/acc_register_26'> Neo-sm 26 </a></li> 
            <li class='nav-item'><a class='nav-link' href='/acc_register'> Εγγραφή </a></li>
            <li class='nav-item'><a class='nav-link' href='/acc_login'> Είσοδος </a></li>
          </ul>
@@ -108,6 +110,8 @@ session_start();
             aria-haspopup='true' aria-expanded='false'> Hackstore </a>
            <ul class='dropdown-menu'>      
             <li class='nav-item'><a class='nav-link' href='devices.php'> Συσκευές </a></li>
+            <li class='nav-item'><a class='nav-link' href='applications.php'> Εφαρμογές </a></li>
+            <li class='nav-item'><a class='nav-link' href='upload_apk.php'> Διαμοιρασμός </a></li> 
             <li class='nav-item'><a class='nav-link' href='profile.php'> Προφίλ </a></li> 
             <li class='nav-item'><a class='nav-link' href='settings.php'> Ρυθμίσεις </a></li>
             <li class='nav-item'><a class='nav-link' href='logout.php'> Αποσύνδεση </a></li> 
@@ -160,7 +164,7 @@ session_start();
                         </div>
                         <div class="info_item">
                             <i class="lnr lnr-envelope"></i>
-                            <h6><a href="#"> contact@hackstore.openloadlinks.com </a></h6>
+                            <h6><a href="#"> contact@hackstore</a></h6>
                             <p> Στείλτε μας το ερώτημά σας ανά πάσα στιγμή! </p>
                         </div>
                     </div>

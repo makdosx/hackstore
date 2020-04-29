@@ -170,10 +170,10 @@ session_start();
 			<div class="row justify-content-center">
 				<div class="col-lg-6 text-center">
 					<div class="main-title">
-						<h1> Συσκευές Hackstore </h1>
+						<h1> Εφαρμογές Hackstore </h1>
 						<p>
-                          Το hackstore είναι ένα κατάστημα γεμάτο συσκευές για χάκερς για όλα τα γούστα.
-                          Όλες οι συσκεύες παρέχονται αποκλειστικά απο το Hackstore.
+                          Το hackstore είναι ένα κατάστημα γεμάτο εφαρμογές για χάκερς για όλα τα γούστα.
+                          Όλες οι εφαρμογές παρέχονται αποκλειστικά απο το Hackstore.
 					   </p>
 					</div>
 				</div>
@@ -184,7 +184,7 @@ session_start();
 				<div class="col-lg-10">
 					<div class="projects_fillter">
 						<ul class="filter list">
-						 <li class="active" data-filter="*"> Εδω θα βρειτε ολες τις συσκευες του  &nbsp; <font color="black"> Hackstore </font> </li>
+						 <li class="active" data-filter="*"> Εδω θα βρειτε ολες τις εφαρμογες του  &nbsp; <font color="black"> Hackstore </font> </li>
 					</div>
 				</div>
 			</div>
@@ -216,13 +216,13 @@ else
   {
 
    
-$sql="SELECT id, device_title, device_category  FROM devices_details";
+$sql="SELECT id, title, category, app_img_name, app_img_type, app_img_size, app_img_data FROM applications";
 
 $result=$conn->query($sql);
 
 
 echo' <table align="center">
-      <tr>';
+      ';
 
 
 
@@ -230,51 +230,32 @@ echo' <table align="center">
       {
 
 
-      $device_category = $row['device_category'];
+         $category = $row['category'];
 
-
-        if ($device_category == 'Internet Hacking')
-          {
-            $device_logo =  "<img src='img/slider/internet_hacking/internet_hacking1.png' height='250' width='100%'>";  
-          }
-     
-     
-      if ($device_category == 'GSM Hacking')
-          {
-          $device_logo =  "<img src='img/slider/gsm_hacking/gsm_hacking1.png' height='250' width='100%'>";  
-          }
-     
-     
-      if ($device_category == 'Full Hacking')
-          {
-        $device_logo =  "<img src='img/slider/full_hacking/0.png' height='250' width='100%'>";  
-          }
-
-      //$device_logo =  '<img src="data:image/jpeg;base64,'. base64_encode($row['device_logo']) .'" height=250 width=100% />';
-
-      $device_title = $row['device_title'];
+         $app_title = $row['title']; 
+  
+        // $app_logo =  "<img src='__APPS__/pics/".$app_title.".png' height='250' width=100%'>";  
       
-
-
+       $app_logo = '<img src="data:image/jpeg;base64,'. base64_encode($row['app_img_data']) .'"  title="'.$row['app_img_name'].'" height=300 width=100% />';
 	
-	echo '<td align="center"> <font size="3"> '.$device_category.' </font>
+	echo '<tr> <td align="center" width="500"> <font size="3"> '.$category.' </font>
            <div class="col-lg-6 col-sm-6  grid-item">
 					<div class="projects_item">
-						'.$device_logo.'
+						'.$app_logo.'
 						<div class="projects_text">
-							<a href="devices_details.php?id='.$row['id'].'">
-								<h6> <font color="white"> '.$device_title.' </font> </h6>
+							<a href="applications_details.php?id='.$row['id'].'">
+								<h6> <font color="white"> '.$app_title.' </font> </h6>
 							</a>
 						</div>
 					</div>
 				</div> 
-			   </td>';
+			   </td> </tr>';
 	
 
 	
      } // end of while
      
-     echo '</tr> </table>';
+     echo ' </table>';
      
      
      

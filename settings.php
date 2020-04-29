@@ -20,7 +20,7 @@
  *
  */
 
-require('__DEV__/force_https.php');
+//require('__DEV__/force_https.php');
 
 session_start();
 
@@ -251,15 +251,25 @@ while ($row=$result->fetch_assoc())
                         <div class="col-md-12 col-sm-12 col-xs-12 user-detail-section1 text-center">
 
        <a href="index.php" id="btn-contact" class="btn btn-success btn-block follow" role="button"> 
-           Αρχική
+          <i class="fa fa-home" style="font-size:16px"></i> Αρχική
        </a>
        
        <a href="devices.php" id="btn-contact" class="btn btn-success btn-block follow" role="button"> 
-           Συσκευές
+          <i class="fa fa-mobile" style="font-size:16px"></i> Συσκευές
+       </a>
+       
+       <a href="applications.php" id="btn-contact" class="btn btn-success btn-block follow" role="button"> 
+          <i class="fa fa-android" style="font-size:16px"></i> Εφαρμογές
        </a>
 
-  <a href="profile.php" id="btn-contact" class="btn btn-warning btn-block" role="button"> 
-           Προφίλ
+   
+       <a href="upload_apk.php" id="btn-contact" class="btn btn-info btn-block" role="button"> 
+          <i class="fa fa-share" style="font-size:16px"></i> Διαμοιρασμός
+       </a>
+       
+
+       <a href="profile.php" id="btn-contact" class="btn btn-warning btn-block" role="button"> 
+          <i class="fa fa-user" style="font-size:16px"></i> Προφίλ
        </a>
 
           
@@ -287,7 +297,7 @@ while ($row=$result->fetch_assoc())
                                 </div>
 
                 <div class="col-md-4 col-sm-6 col-xs-6 profile-header-section1 text-right pull-rigth">
-                    <a href="logout.php" class="btn btn-primary btn-block"> Αποσύνδεση Αποσύνδεση <i class="fa fa-sign-out" style="font-size:16px"></i> </a>
+                    <a href="logout.php" class="btn btn-primary btn-block"> Αποσύνδεση <i class="fa fa-sign-out" style="font-size:16px"></i> </a>
                 </div>
 
 

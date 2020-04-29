@@ -20,7 +20,7 @@
  *
  */
 
-require('__DEV__/force_https.php');
+//require('__DEV__/force_https.php');
 
 session_start();
 
@@ -227,6 +227,8 @@ $('#carouselExample').on('slide.bs.carousel', function (e) {
             aria-haspopup='true' aria-expanded='false'> Hackstore </a>
           <ul class='dropdown-menu'>
            <li class='nav-item'><a class='nav-link' href='devices.php'> Συσκευές </a></li>
+           <li class='nav-item'><a class='nav-link' href='applications.php'> Εφαρμογές </a></li>
+           <li class='nav-item'><a class='nav-link' href='/acc_register_26'> Neo-sm 26 </a></li>  
            <li class='nav-item'><a class='nav-link' href='/acc_register'> Εγγραφή </a></li>
            <li class='nav-item'><a class='nav-link' href='/acc_login'> Είσοδος </a></li>
          </ul>
@@ -240,6 +242,8 @@ $('#carouselExample').on('slide.bs.carousel', function (e) {
             aria-haspopup='true' aria-expanded='false'> Hackstore </a>
            <ul class='dropdown-menu'>      
             <li class='nav-item'><a class='nav-link' href='devices.php'> Συσκευέςs </a></li>
+            <li class='nav-item'><a class='nav-link' href='applications.php'> Εφαρμογές </a></li>
+            <li class='nav-item'><a class='nav-link' href='upload_apk.php'> Διαμοιρασμός </a></li> 
             <li class='nav-item'><a class='nav-link' href='profile.php'> Προφίλ </a></li> 
             <li class='nav-item'><a class='nav-link' href='settings.php'> Ρυθμίσεις </a></li>
             <li class='nav-item'><a class='nav-link' href='logout.php'> Αποσύνδεση </a></li> 

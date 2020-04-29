@@ -32,7 +32,9 @@ session_start();
 <head>
 	<!-- Required meta tags -->
 	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"> 
+	
 	<link rel="icon" href="img/favicon.png" type="image/png">
 	<title> Hackstore </title>
 	<!-- Bootstrap CSS -->
@@ -44,22 +46,165 @@ session_start();
 	<link rel="stylesheet" href="vendors/nice-select/css/nice-select.css">
 	<link rel="stylesheet" href="vendors/animate-css/animate.css">
 	<link rel="stylesheet" href="vendors/flaticon/flaticon.css">
+
 	<!-- main css -->
 	<link rel="stylesheet" href="css/style.css">
 	
-	
 
+
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
+  
+<script>
+$('#carouselExample').on('slide.bs.carousel', function (e) {
+
+  
+    var $e = $(e.relatedTarget);
+    var idx = $e.index();
+    var itemsPerSlide = 3;
+    var totalItems = $('.carousel-item').length;
+    
+    if (idx >= totalItems-(itemsPerSlide-1)) {
+        var it = itemsPerSlide - (totalItems - idx);
+        for (var i=0; i<it; i++) {
+            // append slides to end
+            if (e.direction=="left") {
+                $('.carousel-item').eq(i).appendTo('.carousel-inner');
+            }
+            else {
+                $('.carousel-item').eq(0).appendTo('.carousel-inner');
+            }
+        }
+    }
+});
+
+
+
+
+
+  $(document).ready(function() {
+/* show lightbox when clicking a thumbnail */
+    $('a.thumb').click(function(event){
+      event.preventDefault();
+      var content = $('.modal-body');
+      content.empty();
+        var title = $(this).attr("title");
+        $('.modal-title').html(title);        
+        content.html($(this).html());
+        $(".modal-profile").modal({show:true});
+    });
+
+  });
+    
+</script>  
+  
+  
+  
+  
 <style>
-.img {
-    position: relative;
-    float: left;
-    width:  100px;
-    height: 100px;
-    background-position: 50% 50%;
-    background-repeat:   no-repeat;
-    background-size:     cover;
-}    
-</style>	
+
+
+@media (min-width: 768px) {
+
+    /* show 3 items */
+    .carouselPrograms .carousel-inner .active,
+    .carouselPrograms .carousel-inner .active + .carousel-item,
+    .carouselPrograms .carousel-inner .active + .carousel-item + .carousel-item {
+        display: block;
+    }
+
+    .carouselPrograms .carousel-inner .carousel-item.active:not(.carousel-item-right):not(.carousel-item-left),
+    .carouselPrograms .carousel-inner .carousel-item.active:not(.carousel-item-right):not(.carousel-item-left) + .carousel-item,
+    .carouselPrograms .carousel-inner .carousel-item.active:not(.carousel-item-right):not(.carousel-item-left) + .carousel-item + .carousel-item {
+        transition: none;
+    }
+
+    .carouselPrograms .carousel-inner .carousel-item-next,
+    .carouselPrograms .carousel-inner .carousel-item-prev {
+        position: relative;
+        transform: translate3d(0, 0, 0);
+    }
+
+    .carouselPrograms .carousel-inner .active.carousel-item + .carousel-item + .carousel-item + .carousel-item {
+        position: absolute;
+        top: 0;
+        right: -33.333%;
+        z-index: -1;
+        display: block;
+        visibility: visible;
+    }
+
+    /* left or forward direction */
+    .carouselPrograms .active.carousel-item-left + .carousel-item-next.carousel-item-left,
+    .carouselPrograms .carousel-item-next.carousel-item-left + .carousel-item,
+    .carouselPrograms .carousel-item-next.carousel-item-left + .carousel-item + .carousel-item,
+    .carouselPrograms .carousel-item-next.carousel-item-left + .carousel-item + .carousel-item + .carousel-item {
+        position: relative;
+        transform: translate3d(-100%, 0, 0);
+        visibility: visible;
+    }
+
+    /* farthest right hidden item must be abso position for animations */
+    .carouselPrograms .carousel-inner .carousel-item-prev.carousel-item-right {
+        position: absolute;
+        top: 0;
+        left: 0%;
+        z-index: -1;
+        display: block;
+        visibility: visible;
+    }
+
+    /* right or prev direction */
+    .carouselPrograms .active.carousel-item-right + .carousel-item-prev.carousel-item-right,
+    .carouselPrograms .carousel-item-prev.carousel-item-right + .carousel-item,
+    .carouselPrograms .carousel-item-prev.carousel-item-right + .carousel-item + .carousel-item,
+    .carouselPrograms .carousel-item-prev.carousel-item-right + .carousel-item + .carousel-item + .carousel-item {
+        position: relative;
+        transform: translate3d(100%, 0, 0);
+        visibility: visible;
+        display: block;
+        visibility: visible;
+    }
+}
+
+
+.button {
+    display: block;
+    width: 115px;
+    height: 40px;
+    background: #FFD200;
+    padding: 10px;
+    text-align: center;
+    text-decoration:none;
+    border-radius: 5px;
+    color: black;
+    font-weight: bold;
+}
+
+
+.button:hover {
+    display: block;
+    width: 115px;
+    height: 40px;
+    background: #FFD200;
+    padding: 10px;
+    text-align: center;
+    text-decoration:none;
+    border-radius: 5px;
+    color: red;
+    font-weight: bold;
+}
+
+
+
+</style>
+
+
+
+	
+	
 	
 </head>
 
@@ -103,7 +248,7 @@ session_start();
 						<ul class="nav navbar-nav menu_nav justify-content-end">
 							<li class="nav-item"><a class="nav-link" href="index.php"> Αρχική </a></li>
 							<li class="nav-item"><a class="nav-link" href="about-us.php"> Για Εμάς </a></li>
-						
+
 
 <?php if (!isset($_SESSION['login']))
       {
@@ -138,9 +283,7 @@ session_start();
 ?>
 
 
-											
-	<li class="nav-item"><a class="nav-link" href="contact.php"> Επικοινωνία </a></li>
-
+							<li class="nav-item"><a class="nav-link" href="contact.php"> Επικοινωνία </a></li>
 						</ul>
 					</div>
 				</div>
@@ -160,40 +303,40 @@ session_start();
 	</section>
 	<!--================ End Portfolio Banner Area =================-->
 
-	<!--================ Start Portfolio Area =================-->
-	
-	
-	
-	<div align="center">
-	<section class="section_gap portfolio_area" id="work">
-		<div class="container">
-			<div class="row justify-content-center">
-				<div class="col-lg-6 text-center">
-					<div class="main-title">
-						<h1> Συσκευές Hackstore </h1>
-						<p>
-                          Το hackstore είναι ένα κατάστημα γεμάτο συσκευές για χάκερς για όλα τα γούστα.
-                          Όλες οι συσκεύες παρέχονται αποκλειστικά απο το Hackstore.
-					   </p>
-					</div>
-				</div>
-			</div>
-			
-			
-			<div class="row justify-content-center">
-				<div class="col-lg-10">
-					<div class="projects_fillter">
-						<ul class="filter list">
-						 <li class="active" data-filter="*"> Εδω θα βρειτε ολες τις συσκευες του  &nbsp; <font color="black"> Hackstore </font> </li>
-					</div>
-				</div>
-			</div>
-	
 
-	
+
+
+	<!--================ Start Portfolio Details Area =================-->
+	<section class="portfolio_details_area section_gap">
+		<div class="container">
+			<div class="portfolio_details_inner">
+			
+					
+					
+					
+
 <?php
 
 
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
+
+
+if(isset($_GET['id']))
+   {
+    $id = intval($_GET['id']);
+ 
+   
+    if($id <= 0) 
+     {
+        die('The ID is invalid!');
+      }
+      
+      
+    else 
+      {
 
 require('__ROOT__/class_cn.php');
 require('__DEV__/function.php');
@@ -206,6 +349,10 @@ require('__DEV__/function.php');
  $db=$obj->connect[3];
   
  $conn = new mysqli($host,$user,$pass,$db);
+ 
+ $conn->set_charset('utf8');
+
+ 
 if (!$conn) 
     {
     die("Connect error " .$conn->connect_error);
@@ -216,80 +363,105 @@ else
   {
 
    
-$sql="SELECT id, device_title, device_category  FROM devices_details";
-
+$sql="SELECT * FROM applications where id = '$id' ";
 $result=$conn->query($sql);
-
-
-echo' <table align="center">
-      <tr>';
 
 
 
     while ($row = $result->fetch_assoc())
       {
 
+         $_from = $row['_from'];
+ 
+         $category = $row['category'];
+ 
+         $app_title = $row['title']; 
+  
+         //$app_logo =  "<img src='__APPS__/pics/".$app_title.".png' height='300' width=100%'>"; 
 
-      $device_category = $row['device_category'];
+         $app_logo = '<img src="data:image/jpeg;base64,'. base64_encode($row['app_img_data']) .'"  title="'.$row['app_img_name'].'" height=300 width=100% />';
 
-
-        if ($device_category == 'Internet Hacking')
-          {
-            $device_logo =  "<img src='img/slider/internet_hacking/internet_hacking1.png' height='250' width='100%'>";  
-          }
-     
-     
-      if ($device_category == 'GSM Hacking')
-          {
-          $device_logo =  "<img src='img/slider/gsm_hacking/gsm_hacking1.png' height='250' width='100%'>";  
-          }
-     
-     
-      if ($device_category == 'Full Hacking')
-          {
-        $device_logo =  "<img src='img/slider/full_hacking/0.png' height='250' width='100%'>";  
-          }
-
-      //$device_logo =  '<img src="data:image/jpeg;base64,'. base64_encode($row['device_logo']) .'" height=250 width=100% />';
-
-      $device_title = $row['device_title'];
       
-
-
+      
+         $app_mini_description = $row['mini_description'];
+      
+         $app_full_description = $row['full_description'];
+      
 	
-	echo '<td align="center"> <font size="3"> '.$device_category.' </font>
-           <div class="col-lg-6 col-sm-6  grid-item">
-					<div class="projects_item">
-						'.$device_logo.'
-						<div class="projects_text">
-							<a href="devices_details.php?id='.$row['id'].'">
-								<h6> <font color="white"> '.$device_title.' </font> </h6>
-							</a>
+		echo	'<div class="row">
+					<div class="col-md-6">
+						<div class="left_img">
+							'.$app_logo.'
 						</div>
 					</div>
-				</div> 
-			   </td>';
-	
+					
+					
+					<div class="offset-md-1 col-md-5">
+						<div class="portfolio_right_text mt-30">
+					          <h4>
+                                                    <img src="img/profile/android.png" height="30px" width="30px"> 
+                                                    '.$app_title.' 
+                                                  </h4>
+                                                  <h5> From: '.$_from.' </h5>  
+			                 	  <p> '.$app_mini_description.' </p>
+					    	    <ul class="list">
+						     <li> 
+					     	      <li><span> Όν. Εφαρμογής </span>: '.$app_title.' </li>
+						      <li><span> Κατηγορία </span>:  '.$category.'  </li>
+					   	      <li><span> Λείτ. Σύστημα </span>:  Android </li>
+								
+						 <br><br>';
+								
+                                                 if (!isset($_SESSION['login']))
+                                                     {
+                                                      echo '<font style="background-color:#FFD200;"> 
+                                                              &nbsp; Για να κατεβέσεις την εφαρμογή πρέπει να συνδεθέις &nbsp;
+                                                            </font>';
+                                                       }
+                                                            
+                                                            
+                                                  else
+                                                    {
+                                                echo' <a class="button" href="download_apk.php?id='.$id.'" style=""> 
+                                                   Download 
+                                                 </a>';
+                                                     }
+                                                     
+                                                 
+				  echo' </div>
+					</div>
+					
+				</div> <!-- end div row -->
+			
+				
+				<p> '.$app_full_description.' </p>';
 
 	
-     } // end of while
+        } // end of while
+        
+        
+      
      
-     echo '</tr> </table>';
+  
+      } // end of else connect
+  
+  
+    } // end else id ivalid
+ 
+ 
+  } // end if isset id
      
-     
-     
-     
-    
-  } // end else of connect 
-
-?>
-
-
-
-	</div> </div> </section> </div>
-
-
-	<!--================ End Portfolio Area =================-->
+?>     
+					
+					
+					
+			</div>
+		</div>
+	</section>
+	<!--================ Start Portfolio Details Area =================-->
+	
+	
+	
 
 	<!--================Footer Area =================-->
 	<footer class="footer_area section_gap">
@@ -312,7 +484,7 @@ echo' <table align="center">
 					</aside>
 					<div class="copyright">
 						<p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-Πνευματική ιδιοκτησία &copy;<script>document.write(new Date().getFullYear());</script> Όλα τα δικαιώματα διατηρούνται | Αυτή η υπηρεσία γίνεται με <a href="https://hackstore.openloadlinks.com"> Hackstore </a>
+  Πνευματική ιδιοκτησία &copy;<script>document.write(new Date().getFullYear());</script> Όλα τα δικαιώματα διατηρούνται | Αυτή η υπηρεσία γίνεται με <a href="https://hackstore.openloadlinks.com"> Hackstore </a>
 <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
 					</div>
 				</div>
@@ -338,6 +510,11 @@ echo' <table align="center">
 	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCjCGmQ0Uq4exrzdcL6rvxywDDOvfAu6eE"></script>
 	<script src="js/gmaps.min.js"></script>
 	<script src="js/theme.js"></script>
+	
+
+	
+	
+	
 </body>
 
 </html>

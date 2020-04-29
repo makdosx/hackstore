@@ -20,7 +20,7 @@
  *
  */
 
-require('__DEV__/force_https.php');
+//require('__DEV__/force_https.php');
 
 
 //ini_set('display_errors', 1);

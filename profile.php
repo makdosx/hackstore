@@ -20,7 +20,7 @@
  *
  */
 
-require('__DEV__/force_https.php');
+//require('__DEV__/force_https.php');
 
 session_start();
 
@@ -253,17 +253,24 @@ while ($row=$result->fetch_assoc())
                         <div class="col-md-12 col-sm-12 col-xs-12 user-detail-section1 text-center">
 
        <a href="index.php" id="btn-contact" class="btn btn-success btn-block follow" role="button"> 
-           Αρχική
+           <i class="fa fa-home" style="font-size:16px"></i> Αρχική
        </a>
        
        <a href="devices.php" id="btn-contact" class="btn btn-success btn-block follow" role="button"> 
-           Συσκευές
+           <i class="fa fa-mobile" style="font-size:16px"></i> Συσκευές
        </a>
 
-  <a href="settings.php" id="btn-contact" class="btn btn-warning btn-block" role="button"> 
-           Ρυθμίσεις
+       <a href="applications.php" id="btn-contact" class="btn btn-success btn-block follow" role="button"> 
+          <i class="fa fa-android" style="font-size:16px"></i> Εφαρμογές
+       </a>
+       
+       <a href="upload_apk.php" id="btn-contact" class="btn btn-info btn-block" role="button"> 
+          <i class="fa fa-share" style="font-size:16px"></i> Διαμοιρασμός
        </a>
 
+       <a href="settings.php" id="btn-contact" class="btn btn-warning btn-block" role="button"> 
+         <i class="fa fa-cog" style="font-size:16px"></i> Ρυθμίσεις
+       </a>
           
 
                         </div>
@@ -273,7 +280,7 @@ while ($row=$result->fetch_assoc())
                                 <p> <h4> Πληροφορίες συσκευής </h4> </p>
                                 <img src="img/profile/android.png" height="60px" width="70px">
                                   <br>
-                                <span> neo-sm 26 </span>
+                                <span> '.$user.' </span>
                             </div>                           
                         </div>
 
@@ -369,8 +376,11 @@ while ($row=$result->fetch_assoc())
                                               </div>
                           
                                 </div>
+                                
+                                
                                 <div class="col-md-4 img-main-rightPart">
                                     <div class="row">
+                                    
                                         <div class="col-md-12">
                                             <div class="row image-right-part">
                                                 <div class="col-md-12 pull-left image-right-detail">
@@ -378,7 +388,8 @@ while ($row=$result->fetch_assoc())
                                                 </div>
                                             </div>
                                         </div>
-                                        <a href="http://camaradecomerciozn.com/">
+                                        
+                                        
                                             <div class="col-md-12 image-right">
                                      <img src="img/profile/device-verified.png">
                                             </div>
@@ -386,8 +397,13 @@ while ($row=$result->fetch_assoc())
                                         <div class="col-md-12 image-right-detail-section2">
 
                                         </div>
+                                        
                                     </div>
+                                    
+                                    
                                 </div>
+            
+                                
                             </div>
                         </div>
                     </div>
