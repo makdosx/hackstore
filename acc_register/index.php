@@ -20,7 +20,9 @@
  *
  */
 
-require('../__DEV__/force_https.php');
+//require('../__DEV__/force_https.php');
+
+session_start();
 
 ?>
 
@@ -114,9 +116,15 @@ background-color:grey;
 
 
 
-		<div class="wrap-input100 validate-input" data-validate="Imei2 is required">
-		<label class="label-input100" for="name"> <font size="3"> <b> ΙΜΕΙ 2 </b> </font> </label>
-	       <input id="name" class="input100" type="text" name="imei2" placeholder="Πληκτρολογήστε το ΙΜΕΙ 2">
+		<div class="wrap-input100 validate-input" data-validate="Device Category required">
+		<label class="label-input100" for="name"> <font size="3"> <b> Device Ctegory </b> </font> </label>
+                
+                  <select style="width:100%; background-color: transparent; text-align-last:center;" name="device_category" required>
+                    <option value="" disabled selected> Choose Ctegory </option>    
+                    <option value="Internet Hacking"> Internet Hacking </option>
+                    <option value="GSM Hacking"> GSM Hacking </option>
+                    <option value="Full Hacking"> Full Hacking </option>
+                   </select> 
 					<span class="focus-input100"></span>
 				</div>
 
@@ -205,6 +213,7 @@ background-color:grey;
 
 if (isset($_POST['submit']))
  {
+ 
  require('../__ROOT__/class_cn.php');
  require('../__DEV__/function.php');
 
@@ -226,7 +235,7 @@ else
   {
 
    // check for empty fields
-  if (empty($_POST['email'] || $_POST['imei1'] || $_POST['imei2'] || $_POST['password']))
+  if (empty($_POST['email'] || $_POST['imei1'] || $_POST['device_category'] || $_POST['password']))
      {
  echo '<script type="text/javascript">alert("Τα πεδία είναι υποχρεωτικά.");
          </script>';
@@ -239,77 +248,26 @@ else
 
   $email = input($_POST['email']);
   $imei1 = input($_POST['imei1']);
-  $imei2 = input($_POST['imei2']);
+  $device_category = input($_POST['device_category']);
   $password = md5(input($_POST['password']));
  
    
-$sql="SELECT device_name, device_category, imei1, imei2 FROM devices";
-
-$result=$conn->query($sql);
-
-
-    while ($row = $result->fetch_assoc())
-     {
-
-      $device_name = $row['device_name'];
-      $device_category = $row['device_category'];
-      
-      $row_imei1 = $row['imei1'];
-      $row_imei2 = $row['imei2'];
-
-
-  //echo $row_imei1 ."<br>" .$row_imei2;
-
-   // echo "<br>" ."<br>";  
-
-   // echo $imei1 ."<br>" .$imei2;    
- 
-
-
-     if ($row_imei1 != $imei1 && $row_imei2 != $imei2)
-        {
-    echo '<script type="text/javascript">alert("Το ΙΜΕΙ 1 και το ΙΜΕΙ 2 δεν υπάρχουν. Δοκιμάστε με ένα άλλο ΙΜΕΙ 1 και ένα άλλο ΙΜΕΙ 2.");
-         </script>';
-     echo ("<script>location.href='/acc_register'</script>");
-       }
-
-
-
- else if ($row_imei1 != $imei1 && $row_imei2 == $imei2)
-        {
-    echo '<script type="text/javascript">alert("Το ΙΜΕΙ 1 δεν υπάρχει. Δοκιμάστε με άλλο ΙΜΕΙ 1 και το ίδιο ΙΜΕΙ 2.");
-         </script>';
-     echo ("<script>location.href='/acc_register'</script>");
-       }
-
-
-
-  else if ($row_imei1 == $imei1 && $row_imei2 != $imei2)
-        {
-    echo '<script type="text/javascript">alert("Το ΙΜΕΙ 2 δεν υπάρχει. Δοκιμάστε με άλλο ΙΜΕΙ 2 και το ίδιο ΙΜΕΙ 1.");
-         </script>';
-     echo ("<script>location.href='/acc_register'</script>");
-       }
-
-
-
-   else  if ($row_imei1 == $imei1 && $row_imei2 == $imei2)
-      {
 
       $rand_qr = 5;
       $qrcode  = substr(str_shuffle("0123456789"),0, $rand_qr);
              
-      session_start();
+
       $_SESSION['qrcode'] = $qrcode;
 
 $sql2 = "INSERT INTO login (device_name, device_category, imei1, imei2, email, password, verification_code, verified) 
-         VALUES ('$device_name', '$device_category', '$imei1','$imei2','$email','$password', '$qrcode', 'no')";
+         VALUES ('$email', '$device_category', '$imei1','$imei1','$email','$password', '$qrcode', 'no')";
 $result2=$conn->query($sql2);
 
 if (($result2) === TRUE) 
       {
           
-        $sql3 = "UPDATE devices set email = '$email' WHERE imei1 = '$imei1' and imei2 ='$imei2' ";  
+        $sql3 = "insert into devices (device_name, device_category ,imei1, imei2, email)
+                       values  ('$email', '$device_category', '$imei1', '$imei1', '$email') ";  
         $result = $conn->query($sql3);
         
         if (($result2) === TRUE) 
@@ -325,7 +283,7 @@ if (($result2) === TRUE)
 
 
 
-    else 
+   else 
      {
       echo '<script type="text/javascript">alert("Σφάλμα εγγραφής. Αυτή η συσκευή έχει εγγραφεί ξανά.");
          </script>';
@@ -333,16 +291,11 @@ if (($result2) === TRUE)
      }
 
 
-   } // end of else if imei1 and imei2 success
-   
 
-}
 
-$result->free();
+ } // end else for empty fields
 
-  
 
- } // end of else empty fields
 
 
 
