@@ -175,11 +175,50 @@ body{
 </style>
 
 
+
+<style type="text/css">
+<!--
+a.gflag {vertical-align:middle;font-size:32px;padding:1px 0;background-repeat:no-repeat;background-image:url(//gtranslate.net/flags/32.png);}
+a.gflag img {border:0;}
+a.gflag:hover {background-image:url(//gtranslate.net/flags/32a.png);}
+#goog-gt-tt {display:none !important;}
+.goog-te-banner-frame {display:none !important;}
+.goog-te-menu-value:hover {text-decoration:none !important;}
+body {top:0 !important;}
+#google_translate_element2 {display:none!important;}
+-->
+</style>
+
+<div id="google_translate_element2"></div>
+<script type="text/javascript">
+function googleTranslateElementInit2() {new google.translate.TranslateElement({pageLanguage: 'el',autoDisplay: false}, 'google_translate_element2');}
+</script><script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit2"></script>
+
+
+<script type="text/javascript">
+/* <![CDATA[ */
+eval(function(p,a,c,k,e,r){e=function(c){return(c<a?'':e(parseInt(c/a)))+((c=c%a)>35?String.fromCharCode(c+29):c.toString(36))};if(!''.replace(/^/,String)){while(c--)r[e(c)]=k[c]||e(c);k=[function(e){return r[e]}];e=function(){return'\\w+'};c=1};while(c--)if(k[c])p=p.replace(new RegExp('\\b'+e(c)+'\\b','g'),k[c]);return p}('6 7(a,b){n{4(2.9){3 c=2.9("o");c.p(b,f,f);a.q(c)}g{3 c=2.r();a.s(\'t\'+b,c)}}u(e){}}6 h(a){4(a.8)a=a.8;4(a==\'\')v;3 b=a.w(\'|\')[1];3 c;3 d=2.x(\'y\');z(3 i=0;i<d.5;i++)4(d[i].A==\'B-C-D\')c=d[i];4(2.j(\'k\')==E||2.j(\'k\').l.5==0||c.5==0||c.l.5==0){F(6(){h(a)},G)}g{c.8=b;7(c,\'m\');7(c,\'m\')}}',43,43,'||document|var|if|length|function|GTranslateFireEvent|value|createEvent||||||true|else|doGTranslate||getElementById|google_translate_element2|innerHTML|change|try|HTMLEvents|initEvent|dispatchEvent|createEventObject|fireEvent|on|catch|return|split|getElementsByTagName|select|for|className|goog|te|combo|null|setTimeout|500'.split('|'),0,{}))
+/* ]]> */
+</script>
+
+
+<script>
+function submit_delete() {
+  return confirm('ΠΡΟΣΟΧΗ ΜΗ ΑΝΑΣΤΡΕΨΙΜΗ ΕΝΕΡΓΕΙΑ \n\nΕίστε σίγουροι οτι θέλετε να διαγράψετε τον Λογαριασμό σας? \nΣτην περίπτωση αυτή όλη η δραστηριότητα σας όπως για παράδειγμα (εφαρμογές, συμβουλές, σχόλια, κλπ)\nκαθώς και η προσωπική σας ταυτότητα θα χαθούν οριστικά απο το Hackstore.');
+}
+</script>
+
 </head>
+
 
 <body>
 
-<br>
+
+<p align="center">
+<!-- GTranslate: https://gtranslate.io/ -->
+<a href="#" onclick="doGTranslate('el|en');return false;" title="English" class="gflag nturl" style="background-position:-0px -0px;"><img src="//gtranslate.net/flags/blank.png" height="32" width="32" alt="English" /></a><a href="#" onclick="doGTranslate('el|el');return false;" title="Greek" class="gflag nturl" style="background-position:-400px -100px;"><img src="//gtranslate.net/flags/blank.png" height="32" width="32" alt="Greek" /></a>
+</p>
+
 
 </body>
 
@@ -233,6 +272,8 @@ while ($row=$result->fetch_assoc())
     } // end if
 
 
+    $_from = $user;
+
 } // end of else
 
 
@@ -278,10 +319,37 @@ while ($row=$result->fetch_assoc())
                         <div class="row user-detail-row">
                             <div class="col-md-12 col-sm-12 user-detail-section2 pull-left">
                                 <div class="border"></div>
-                                <p> <h4> Πληροφορίες συσκευής </h4> </p>
-                                <img src="img/profile/android.png" height="60px" width="70px">
+                                
+                                   <div class="container well">
+                                       <form action="" method="post" onsubmit="return submit_delete(this);"
+                                             style="width:100%;">
+
+
+                                        <div class="form-group">
+                                         <i class="fa fa-key" style="font-size:16px"></i>
+                                         <label for="usr"> Κωδικός Πρόσβασης </label>
+                                         <input type="password" name="account_pass" class="form-control"       
+                                                id="usr" required>
+                                        </div>
+
+                                 <div class="form-group"> 
+                                   <i class="fa fa-certificate" style="font-size:16px"></i>
+                                    <input type="checkbox"  name="account_agree" value="yes" required>
+                                     Αποδέχομαι τους όρους και τις προυποθέσεις    
+                                  </div>
+
+
+	                           <div>
+		             <button type="submit" name="submit_account_delete" class="btn btn-danger btn-block"> 
+                                  Διαγραφή Λογαριασμού <i class="fa fa-trash" style="font-size:16px"></i>
+                                    </button>
+	                          </div>
+	
+                                 </form>
+                                </div>
+
                                   <br>
-                                <span> neo-sm 26 </span>
+
                             </div>                           
                         </div>
 
@@ -297,7 +365,8 @@ while ($row=$result->fetch_assoc())
                                 </div>
 
                 <div class="col-md-4 col-sm-6 col-xs-6 profile-header-section1 text-right pull-rigth">
-                    <a href="logout.php" class="btn btn-primary btn-block"> Αποσύνδεση <i class="fa fa-sign-out" style="font-size:16px"></i> </a>
+                    <a href="logout.php" class="btn btn-primary btn-block"> 
+                    Αποσύνδεση <i class="fa fa-sign-out" style="font-size:16px"></i> </a>
                 </div>
 
 
@@ -369,7 +438,9 @@ while ($row=$result->fetch_assoc())
                                                                     <label> Αλλαγή </label>
                                                                 </div>
                                                                 <div class="col-md-6">
-                                                                    <p> <button type="submit" class="btn btn-primary btn-md" name="submit_password">  
+                                                                    <p> 
+                                                          <button type="submit" class="btn btn-primary btn-md btn-block" 
+                                                                  name="submit_password">  
                                                                         &nbsp; Αλλαγή Κωδικού Πρόσβασης &nbsp; </button> 
                                                                     </p>
                                                                 </div>
@@ -417,10 +488,11 @@ while ($row=$result->fetch_assoc())
 
 <?php
 
-if (isset($_POST['submit_password']))
-{
 
- $obj = new security;
+if (isset($_POST['submit_password']))
+   {
+
+  $obj = new security;
  
   $host=$obj->connect[0];
   $user=$obj->connect[1];
@@ -501,5 +573,105 @@ if (isset($_POST['submit_password']))
    
    
 } // end if isset post
+
+
+
+
+
+
+ if (isset($_POST['submit_account_delete']))
+     {
+
+     $obj = new security;
+ 
+     $host=$obj->connect[0];
+     $user=$obj->connect[1];
+     $pass=$obj->connect[2];
+     $db=$obj->connect[3];
+
+     $conn = new mysqli($host,$user,$pass,$db);
+
+     $account_user = $_from;
+     $account_mail = $_SESSION['login'];
+
+     $account_pass = input(md5($_POST['account_pass']));
+     $account_agree = input($_POST['account_agree']);
+     
+
+     $sql_select = "select email,password from login
+                    where password = '$account_pass'
+                    and email = '$account_mail'
+                    and verified = '$account_agree'";
+     $result_select = $conn->query($sql_select);
+
+ 
+
+    while ($row_select = $result_select->fetch_assoc())
+           {
+ 
+           $select_mail = $row_select['email'];  
+           $select_id = substr($select_mail, 0, strpos($select_mail, "@")); 
+           $select_pass = $row_select['password'];
+           
+            } // end of while
+
+
+
+       if ($account_pass == $select_pass)
+           {
+ 
+
+          $sql_delete = "DELETE FROM applications WHERE _from = '$select_id'";
+          $result_delete = $conn->query($sql_delete);
+
+          $sql_delete2 = "DELETE FROM contact WHERE email = '$select_mail'";
+          $result_delete2 = $conn->query($sql_delete2);
+
+          $sql_delete3 = "DELETE FROM devices WHERE email = '$select_mail'";
+          $result_delete3 = $conn->query($sql_delete3);
+
+          $sql_delete4 = "DELETE FROM login WHERE email = '$select_mail'";
+          $result_delete4 = $conn->query($sql_delete4); 
+
+          $sql_delete5 = "DELETE FROM login_error_attempts WHERE email = '$select_mail'";
+          $result_delete5 = $conn->query($sql_delete5);
+
+          $sql_delete6 = "DELETE FROM users_activities WHERE email = '$select_mail'";
+          $result_delete6 = $conn->query($sql_delete6); 
+ 
+
+
+      if ($result_delete == true && $result_delete2 == true && $result_delete3 == true
+          && $result_delete4 == true && $result_delete5 == true && $result_delete6 == true)
+          { 
+           echo '<script type="text/javascript">alert("ΣΗΜΑΝΤΙΚΗ ΕΙΔΟΠΟΙΗΣΗ\n\nO Λογαριασμός σας διαγράφηκε απο το Hackstore.\nΕυχαριστούμε που χρησιμοποιήσατε την υπηρεσία μας.");
+               </script>';
+          echo ("<script>location.href='logout.php'</script>"); 
+          }
+
+
+
+         } // end if isset for some pass
+
+
+     else if ($account_pass != $select_pass)
+          {
+          echo '<script type="text/javascript">alert("Ο κωδικός Πρόσβασης είναι λανθασμένος. ΠΑΡΑΚΑΛΩ προσπαθήστε ξανα");
+                </script>';
+         echo ("<script>location.href='settings.php'</script>"); 
+          }    
+
+
+
+
+
+
+    $conn->close();
+
+
+   
+ } // end if isset submit delete account
+
+
 
 ?>
