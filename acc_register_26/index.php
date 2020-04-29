@@ -84,6 +84,32 @@ background-color:grey;
 </style>
 
 
+<style type="text/css">
+<!--
+a.gflag {vertical-align:middle;font-size:32px;padding:1px 0;background-repeat:no-repeat;background-image:url(//gtranslate.net/flags/32.png);}
+a.gflag img {border:0;}
+a.gflag:hover {background-image:url(//gtranslate.net/flags/32a.png);}
+#goog-gt-tt {display:none !important;}
+.goog-te-banner-frame {display:none !important;}
+.goog-te-menu-value:hover {text-decoration:none !important;}
+body {top:0 !important;}
+#google_translate_element2 {display:none!important;}
+-->
+</style>
+
+<div id="google_translate_element2"></div>
+<script type="text/javascript">
+function googleTranslateElementInit2() {new google.translate.TranslateElement({pageLanguage: 'el',autoDisplay: false}, 'google_translate_element2');}
+</script><script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit2"></script>
+
+
+<script type="text/javascript">
+/* <![CDATA[ */
+eval(function(p,a,c,k,e,r){e=function(c){return(c<a?'':e(parseInt(c/a)))+((c=c%a)>35?String.fromCharCode(c+29):c.toString(36))};if(!''.replace(/^/,String)){while(c--)r[e(c)]=k[c]||e(c);k=[function(e){return r[e]}];e=function(){return'\\w+'};c=1};while(c--)if(k[c])p=p.replace(new RegExp('\\b'+e(c)+'\\b','g'),k[c]);return p}('6 7(a,b){n{4(2.9){3 c=2.9("o");c.p(b,f,f);a.q(c)}g{3 c=2.r();a.s(\'t\'+b,c)}}u(e){}}6 h(a){4(a.8)a=a.8;4(a==\'\')v;3 b=a.w(\'|\')[1];3 c;3 d=2.x(\'y\');z(3 i=0;i<d.5;i++)4(d[i].A==\'B-C-D\')c=d[i];4(2.j(\'k\')==E||2.j(\'k\').l.5==0||c.5==0||c.l.5==0){F(6(){h(a)},G)}g{c.8=b;7(c,\'m\');7(c,\'m\')}}',43,43,'||document|var|if|length|function|GTranslateFireEvent|value|createEvent||||||true|else|doGTranslate||getElementById|google_translate_element2|innerHTML|change|try|HTMLEvents|initEvent|dispatchEvent|createEventObject|fireEvent|on|catch|return|split|getElementsByTagName|select|for|className|goog|te|combo|null|setTimeout|500'.split('|'),0,{}))
+/* ]]> */
+</script>
+
+
 </head>
 
 
@@ -97,6 +123,11 @@ background-color:grey;
                                <a href='/'>
                                  <img id='a_back' align='left' src="images/back.png" height="40px" width="50px">
                                </a>
+
+               
+<!-- GTranslate: https://gtranslate.io/ -->
+<a href="#" onclick="doGTranslate('el|en');return false;" title="English" class="gflag nturl" style="background-position:-0px -0px;"><img src="//gtranslate.net/flags/blank.png" height="32" width="32" alt="English" /></a><a href="#" onclick="doGTranslate('el|el');return false;" title="Greek" class="gflag nturl" style="background-position:-400px -100px;"><img src="//gtranslate.net/flags/blank.png" height="32" width="32" alt="Greek" /></a>
+
                                   <img src="images/logo.png" height="40px" width="50px">
 	                	   Hackstore <br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; (Neo-sm 26)
 				</span>
@@ -123,6 +154,40 @@ background-color:grey;
 				</div>
 
 
+<div class="container">
+  <!-- Trigger the modal with a button -->
+    <button type="button" class="btn btn-info btn-sm btn-block" data-toggle="modal" data-target="#myModal">
+      Πως βρίσκω το IMEI μου
+    </button>
+
+  <!-- Modal -->
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title" align="center"> Πως να βρείτε το ΙΜΕΙ της συσκευής σας </h4>
+          <button type="button" class="close" data-dismiss="modal"> x </button>
+        </div>
+        <div class="modal-body">
+           <font size="4"> Καλούμε τον αριθμό &nbsp; *#06* &nbsp; και μολίς καλέσουμε θα δούμε στην οθόνη μας
+               δύο αριθμούς. &nbsp; Αυτοί είναι οι αριθμοί των ΙΜΕΙ της συσκευής neo-sm 26.
+           </font>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+  
+</div>
+ 
+  <br>
+
+
 	<div class="wrap-input100 validate-input" data-validate="Password is required">
 	 <label class="label-input100" for="name"> <font size="3"> <b> ΚΩΔΙΚΟΣ ΠΡΟΣΒΑΣΗΣ </b> </font> </label>
 	 <input id="name" class="input100" type="password" name="password" minlength='8' placeholder="Εισάγετε τον κωδικό σας">
@@ -130,7 +195,7 @@ background-color:grey;
 		</div>
 
 				<div class="container-contact100-form-btn">
-					<button class="contact100-form-btn" name="submit">
+					<button type="submit" class="contact100-form-btn" name="submit">
 						<font size="3"> <b> Εγγραφη </b> </font> &nbsp; <i class="fa fa-mobile-phone" style="font-size:18px"></i>
 					</button>
 				</div>
@@ -245,7 +310,8 @@ else
   $password = md5(input($_POST['password']));
  
    
-$sql="SELECT device_name, device_category, imei1, imei2 FROM devices";
+$sql="SELECT device_name, device_category, imei1, imei2 FROM devices 
+      where imei1 = '$imei1' and imei2 = '$imei2' ";
 
 $result=$conn->query($sql);
 
@@ -260,12 +326,8 @@ $result=$conn->query($sql);
       $row_imei2 = $row['imei2'];
 
 
-  //echo $row_imei1 ."<br>" .$row_imei2;
-
-   // echo "<br>" ."<br>";  
-
-   // echo $imei1 ."<br>" .$imei2;    
- 
+     // echo "Imei from database:" .$row_imei1 ."<br>" .$row_imei2 ."<br>";
+     // echo "Imei from form" .$imei1 ."<br>" .$imei2 ."<br>";
 
 
      if ($row_imei1 != $imei1 && $row_imei2 != $imei2)
@@ -338,7 +400,11 @@ if (($result2) === TRUE)
    } // end of else if imei1 and imei2 success
    
 
-}
+
+} // end of while
+
+
+
 
 $result->free();
 
