@@ -47,9 +47,13 @@ session_start();
 	<!-- main css -->
 	<link rel="stylesheet" href="css/style.css">
 	
-	
+
+
+
 
 <style>
+
+
 .img {
     position: relative;
     float: left;
@@ -59,7 +63,99 @@ session_start();
     background-repeat:   no-repeat;
     background-size:     cover;
 }    
+
+
+.search {
+    width: 250px;
+    height: 40px;
+    padding: 0px;
+    text-align: center;
+    text-decoration:none;
+    border-radius: 5px;
+    color: black;
+    font-weight: bold;
+}
+
+
+
+.button {
+    display: block;
+    width: 115px;
+    height: 40px;
+    background: #FFD200;
+    padding: 0px;
+    text-align: center;
+    text-decoration:none;
+    border-radius: 5px;
+    color: black;
+    font-weight: bold;
+}
+
+
+.button:hover {
+    display: block;
+    width: 115px;
+    height: 40px;
+    background: #FFD200;
+    padding: 0px;
+    text-align: center;
+    text-decoration:none;
+    border-radius: 5px;
+    color: red;
+    font-weight: bold;
+}
+
+
+
+
+.search2 {
+    width: 250px;
+    height: 40px;
+    padding: 0px;
+    text-align: center;
+    text-decoration:none;
+    border-radius: 5px;
+    color: black;
+    font-weight: bold;
+}
+
+
+
+.button2 {
+    display: block;
+    width: 250px;
+    height: 40px;
+    background: #FFD200;
+    padding: 0px;
+    text-align: center;
+    text-decoration:none;
+    border-radius: 5px;
+    color: black;
+    font-weight: bold;
+}
+
+
+.button2:hover {
+    display: block;
+    width: 250px;
+    height: 40px;
+    background: #FFD200;
+    padding: 0px;
+    text-align: center;
+    text-decoration:none;
+    border-radius: 5px;
+    color: red;
+    font-weight: bold;
+}
+
+
+
+
+
+
 </style>	
+
+
 
 
 <style type="text/css">
@@ -212,24 +308,21 @@ eval(function(p,a,c,k,e,r){e=function(c){return(c<a?'':e(parseInt(c/a)))+((c=c%a
 				</div>
 			</div>
 			
-			
-			<div class="row justify-content-center">
-				<div class="col-lg-10">
-					<div class="projects_fillter">
-						<ul class="filter list">
-						 <li class="active" data-filter="*"> Εδω θα βρειτε ολες τις εφαρμογες του  &nbsp; <font color="black"> Hackstore </font> </li>
-					</div>
-				</div>
-			</div>
 	
 
 	
 <?php
 
 
-
 require('__ROOT__/class_cn.php');
 require('__DEV__/function.php');
+
+
+if(isset($_GET['category']))
+   {
+
+    $category = input($_GET['category']);
+
 
  $obj = new security;
  
@@ -249,14 +342,40 @@ else
   {
 
    
-$sql="SELECT id, title, category FROM applications GROUP BY category ORDER BY category DESC";
-
+$sql="SELECT id, title, category, app_img_name, app_img_type, app_img_size, app_img_data FROM applications
+      where category = '$category'";
 $result=$conn->query($sql);
 
 
-echo' <table align="center">
-      ';
+echo' <table align="center">';
 
+
+	echo '<div class="row justify-content-center">
+				<div class="col-lg-10">
+					<div class="projects_fillter">
+						<ul class="filter list">
+						 <li class="active" data-filter="*"> 
+                                 Κατηγορια εφαρμοργων: &nbsp; <font color="black"> '.$category.' </font>
+                                                     </li>
+ 
+                                                <hr>
+
+                                     <li>
+                              <div class="input-group" align="center">
+                                <form action="applications_details.php" method="GET">
+                                   <input type="text" placeholder="Αναζήτηση Εφαρμογής" name="title" class="search"> 
+                                      &nbsp; &nbsp;
+                                   <button class="button" type="submit"> Αναζήτηση <i class="fa fa-search"></i> </button>
+                                </form>
+                               </div>
+                                </li>
+
+                             </ul>
+
+			         </div>
+
+			      </div>
+			</div>';
 
 
     while ($row = $result->fetch_assoc())
@@ -266,78 +385,29 @@ echo' <table align="center">
          $category = $row['category'];
 
          $app_title = $row['title']; 
+  
+        // $app_logo =  "<img src='__APPS__/pics/".$app_title.".png' height='250' width=100%'>";  
+      
 
+       $app_logo = '<img src="data:image/jpeg;base64,'. base64_encode($row['app_img_data']) .'"  title="'.$row['app_img_name'].'" height=200 width=100% />';
 
-
-/*
-hacking
-spy
-antispy
-hacking - spy
-hacking - antispy
-spy - antispy
-hacking - spy - antispy
-*/
-
-
-
-        if ($category == 'hacking')
-            {    
-             $app_logo = '<img src="/img/category/hacking.png" height=300 width=100% />';
-             }
-
+	
  
-         if ($category == 'spy')
-             { 
-             $app_logo = '<img src="/img/category/spy.png" height=300 width=100% />'; 
-              }
-
-
-         if ($category == 'antispy')
-             { 
-             $app_logo = '<img src="/img/category/antispy.png" height=300 width=100% />'; 
-              }
-
-
-         if ($category == 'hacking - spy')
-             { 
-             $app_logo = '<img src="/img/category/hacking-spy.png" height=300 width=100% />'; 
-              }
-
-
-         if ($category == 'hacking - antispy')
-             { 
-             $app_logo = '<img src="/img/category/hacking-antispy.png" height=300 width=100% />'; 
-              }
-
-
-          if ($category == 'spy - antispy')
-             { 
-             $app_logo = '<img src="/img/category/spy-antispy.png" height=300 width=100% />'; 
-              }
-
-
-         if ($category == 'hacking - spy - antispy')
-             { 
-             $app_logo = '<img src="/img/category/antispy.png" height=300 width=100% />'; 
-              }
-
-
-
-	echo '<tr> <td align="center" width="100%"> <font size="5"> '.$category.' </font>
-                    <div class="col-lg-6 col-sm-6  grid-item">
+	
+	echo '<tr> <td align="center" width="500">  
+                <div class="col-lg-6 col-sm-6  grid-item"> 
 					<div class="projects_item">
 						'.$app_logo.'
 						<div class="projects_text">
-							<a href="applications_category.php?category='.$category.'">
-								<h6> <font size="4" color="white"> '.$category.' </font> </h6>
+							<a href="applications_details.php?title='.$row['title'].'">
+								<h6> <font color="white"> '.$app_title.' </font> </h6>
 							</a>
 						</div>
 					</div>
 				</div> 
 			   </td> 
                          </tr> 
-                       <tr> <td> <hr style="border-top: 10px solid #ffd200;"> </td> </tr> 
+                       <tr> <td> <hr style="border-top: 3px solid transparent;"> </td> </tr> 
                      <tr> <td> </td> </tr>';
 	
 
@@ -346,11 +416,49 @@ hacking - spy - antispy
      
      echo ' </table>';
      
-     
-     
-     
-    
+
+
+ 
+
   } // end else of connect 
+
+
+  
+ } // end of isset category
+
+
+     else
+       {
+
+     echo '<div class="row justify-content-center">
+				<div class="col-lg-10">
+					<div class="projects_fillter">
+						<ul class="filter list">
+						 <li class="active" data-filter="*"> 
+                                 Κατηγορια εφαρμοργων: &nbsp; <font color="black"> Η κατηγορια δεν υπαρχει </font>
+                                                     </li>
+
+                                                <hr>
+
+                                     <li>
+                              <div class="input-group" align="center">
+                                <form action="applications_details.php" method="GET">
+                                   <input type="text" placeholder="Αναζήτηση Εφαρμογής" name="title" class="search2"> 
+                                     <br><br>
+                                   <button class="button2" type="submit"> Αναζήτηση <i class="fa fa-search"></i> </button>
+                                </form>
+                               </div>
+                                </li>
+
+                             </ul>
+
+			         </div>
+
+			      </div>
+			</div>';
+
+         }
+   
 
 ?>
 

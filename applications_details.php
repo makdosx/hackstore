@@ -351,19 +351,11 @@ error_reporting(E_ALL);
 
 
 
-if(isset($_GET['id']))
+if(isset($_GET['title']))
    {
-    $id = intval($_GET['id']);
- 
-   
-    if($id <= 0) 
-     {
-        die('The ID is invalid!');
-      }
-      
-      
-    else 
-      {
+
+    $title = $_GET['title'];
+
 
 require('__ROOT__/class_cn.php');
 require('__DEV__/function.php');
@@ -390,9 +382,12 @@ else
   {
 
    
-$sql="SELECT * FROM applications where id = '$id' ";
+$sql="SELECT * FROM applications where title = '$title'";
 $result=$conn->query($sql);
+$row = $result->num_rows;
 
+  if ($row == 1)
+       {
 
 
     while ($row = $result->fetch_assoc())
@@ -415,7 +410,7 @@ $result=$conn->query($sql);
          $app_full_description = $row['full_description'];
       
 	
-		echo	'<div class="row">
+		               echo '<div class="row">
 					<div class="col-md-6">
 						<div class="left_img">
 							'.$app_logo.'
@@ -449,8 +444,8 @@ $result=$conn->query($sql);
                                                             
                                                   else
                                                     {
-                                                echo' <a class="button" href="download_apk.php?id='.$id.'" style=""> 
-                                                   Download 
+                                                echo' <a class="button" href="download_apk.php?id='.$row['id'].'" style=""> 
+                                                   Λήψη
                                                  </a>';
                                                      }
                                                      
@@ -465,18 +460,28 @@ $result=$conn->query($sql);
 
 	
         } // end of while
-        
-        
-      
-     
+
+
+       } //end of row if find app
+
+
+     else
+       {
+       echo  "<p align='center'> 
+               <img src='/img/category/error.png' height='150' width='150'> <br>
+              <font size='5'> Η εφαρμογή που αναζητήσατε δεν υπάρχει...
+               </p>
+             </p>";
+         }
+
+
   
       } // end of else connect
-  
-  
-    } // end else id ivalid
+
  
- 
-  } // end if isset id
+  } // end if isset title
+
+
      
 ?>     
 					
